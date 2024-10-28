@@ -8,12 +8,13 @@ type Props = {
 export function MenuItem({ item, addItem }: Props) {
   const { name, price } = item
   return (
-    <button
-      onClick={() => addItem(item)}
-      className="border-2 border-teal-400 w-full p-3 flex justify-between hover:bg-teal-200 rounded-lg"
+    <div
+      className="w-full h-fit p-3 flex justify-between items-center rounded-lg"
     >
-      <p>{name}</p>
-      <p className="font-black">{formatCurrency(price)}</p>
-    </button>
+      <p>{name} - {formatCurrency(price)}</p>
+      <button className='bg-black text-white px-3 py-2 rounded-md font-bold text-sm hover:bg-gray-800'
+      onClick={() => addItem(item)}
+      >Agregar</button>
+    </div>
   )
 }

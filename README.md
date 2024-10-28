@@ -6,10 +6,21 @@ This is a tip calculator application developed in React + TypeScript that allows
 
 ## Features
 
-- Interactive menu with products and prices.
-- Shopping cart with options to add and remove items.
-- Dynamic calculation of the subtotal and tip (10%, 20%, 50%).
-- Real-time update of the total to pay when changing the tip percentage or items in the cart.
+### Two main sections:
+
+- A product menu where you can select items to add to your bill.
+- A selected products section where you can view and remove chosen items.
+
+### In the selected products section:
+
+- You can individually remove products if desired.
+- There is a tip section with three percentage options (10%, 15%, 20%).
+- The subtotal, tip amount, and total to pay are displayed.
+
+Calculations update in real-time as you add or remove products or change the tip percentage.
+The interface is responsive, adapting to different screen sizes.
+Components from shadcn/ui have been used for a consistent and attractive design.
+Accessibility practices have been implemented, including semantic labels and alt text for the delete buttons.
 
 ## Technologies Used
 

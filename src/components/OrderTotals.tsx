@@ -5,9 +5,9 @@ import { formatCurrency } from '../helpers'
 type Props = {
   order: OrderItemType[]
   tip: number
-  placeOrder: () => void
+  resetOrder: () => void
 }
-export function OrderTotals({ order, tip, placeOrder }: Props) {
+export function OrderTotals({ order, tip, resetOrder }: Props) {
   const subtotal = useCallback(
     () => order.reduce((total, item) => total + item.price * item.quantity, 0),
     [order]
@@ -17,7 +17,7 @@ export function OrderTotals({ order, tip, placeOrder }: Props) {
   return (
     <>
       <div className="space-y-3">
-        <h2 className="font-black text-2xl">Totales y propina:</h2>
+        <h2 className="font-bold text-2xl">Totales y propina:</h2>
         <p>
           Subtotal a pagar:{' '}
           <span className="font-bold">{formatCurrency(subtotal())}</span>
@@ -34,9 +34,9 @@ export function OrderTotals({ order, tip, placeOrder }: Props) {
       <button
         className="w-full py-3 uppercase bg-black text-white rounded-md font-bold mt-10 disabled:opacity-20"
         disabled={total === 0}
-        onClick={placeOrder}
+        onClick={resetOrder}
       >
-        Guardar Orden
+        Reset Order
       </button>
     </>
   )

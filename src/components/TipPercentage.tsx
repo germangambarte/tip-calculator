@@ -24,14 +24,20 @@ type Props = {
 export function TipPercentage({ changeTip, tip }: Props) {
   return (
     <>
-      <h3 className="font-black text-2xl">
+      <h3 className="font-black text-2xl pt-4">
         Propina (<span className="font-black text-2xl text-red-600">*</span>):
       </h3>
-      <form>
+      <form className="flex gap-2 py-4">
         {tipOptions.map(({ id, label, value }) => (
-          <label key={id} className="block">
+          <label
+            key={id}
+            className={`py-2 w-16 text-center border rounded-md cursor-pointer hover:bg-gray-200 ${
+              tip === value ? 'bg-black text-white hover:bg-black' : ''
+            }`}
+          >
             <input
               type="radio"
+              className="sr-only"
               name="tip"
               value={value}
               checked={tip === value}

@@ -8,17 +8,36 @@ export function useOrder() {
   function addItem(item: MenuItemType) {
     const itemExist = order.find(({ id }) => id === item.id)
     if (itemExist) {
-      setOrder(
-        order.map((orderItem) =>
-          orderItem.id === item.id
-            ? { ...orderItem, quantity: orderItem.quantity + 1 }
-            : orderItem
-        )
-      )
+      addQuantity(item.id)
     } else {
       setOrder([...order, { ...item, quantity: 1 }])
     }
   }
+
+  function subtractQuantity(id: OrderItemType['id'], quantity: number) {
+    if (quantity === 1) {
+      deleteItem(id)
+      return
+    }
+    setOrder(
+      order.map((orderItem) =>
+        orderItem.id === id
+          ? { ...orderItem, quantity: orderItem.quantity - 1 }
+          : orderItem
+      )
+    )
+  }
+
+  function addQuantity(id: OrderItemType['id']) {
+    setOrder(
+      order.map((orderItem) =>
+        orderItem.id === id
+          ? { ...orderItem, quantity: orderItem.quantity + 1 }
+          : orderItem
+      )
+    )
+  }
+
   function deleteItem(id: OrderItemType['id']) {
     setOrder(order.filter((item) => item.id !== id))
   }
@@ -27,10 +46,19 @@ export function useOrder() {
     setTip(percentage)
   }
 
-  function placeOrder() {
+  function resetOrder() {
     setOrder([])
     setTip(0.1)
   }
 
-  return { order, tip, changeTip, addItem, deleteItem, placeOrder }
+  return {
+    order,
+    tip,
+    changeTip,
+    addItem,
+    deleteItem,
+    resetOrder,
+    addQuantity,
+    subtractQuantity
+  }
 }

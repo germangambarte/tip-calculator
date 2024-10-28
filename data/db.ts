@@ -14,37 +14,32 @@ export const menuItems: MenuItemType[] = [
     id: 3,
     name: 'Rebanada de Pay de Limón',
     price: 30
-  }
-  // {
-  //   id: 4,
-  //   name: 'Rebanada de Pastel de Chocolate',
-  //   price: 30
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Jugo de Naranja',
-  //   price: 15
-  // },
-  // {
-  //   id: 6,
-  //   name: 'Pizza a la Leña Grande',
-  //   price: 70
-  // },
-  // {
-  //   id: 7,
-  //   name: 'Rib Eye 800g',
-  //   price: 100
-  // },
-  // {
-  //   id: 8,
-  //   name: 'Jugo de Naranja',
-  //   price: 15
-  // },
-  // {
-  //   id: 9,
-  //   name: 'Tequila',
-  //   price: 40
-  // },
+  },
+  {
+    id: 4,
+    name: 'Rebanada de Pastel de Chocolate',
+    price: 30
+  },
+  {
+    id: 5,
+    name: 'Jugo de Naranja',
+    price: 15
+  },
+  {
+    id: 6,
+    name: 'Pizza a la Leña Grande',
+    price: 70
+  },
+  {
+    id: 7,
+    name: 'Rib Eye 800g',
+    price: 100
+  },
+  {
+    id: 8,
+    name: 'Jugo de Naranja',
+    price: 15
+  },
   // {
   //   id: 10,
   //   name: 'Rebanada de Pay de Queso',

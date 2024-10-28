@@ -1,11 +1,19 @@
 import { type OrderItemType } from '../../types'
 import { formatCurrency } from '../helpers'
+import { TrashCan, Minus, Plus } from './Icons'
 
 type Props = {
   order: OrderItemType[]
   deleteItem: (id: OrderItemType['id']) => void
+  addQuantity: (id: OrderItemType['id']) => void
+  subtractQuantity: (id: OrderItemType['id'], quantity: number) => void
 }
-export function OrderContent({ order, deleteItem }: Props) {
+export function OrderContent({
+  order,
+  deleteItem,
+  addQuantity,
+  subtractQuantity
+}: Props) {
   return (
     <div>
       <ul className=" mt-5">
@@ -16,17 +24,29 @@ export function OrderContent({ order, deleteItem }: Props) {
           >
             <div>
               <p className="text-lg">
-                {name} - {formatCurrency(price)}
+                {name} - {formatCurrency(price)} x{quantity}
               </p>
-              <p className="font-black">
-                Cantidad: {quantity} - {formatCurrency(price * quantity)}
-              </p>
+              <div className="flex justify-start items-center">
+                <button
+                  className="p-2 border rounded-md hover:bg-gray-200"
+                  onClick={() => subtractQuantity(id, quantity)}
+                >
+                  <Minus />
+                </button>
+                <span className="p-2">{quantity}</span>
+                <button
+                  className="p-2 border rounded-md hover:bg-gray-200"
+                  onClick={() => addQuantity(id)}
+                >
+                  <Plus />
+                </button>
+              </div>
             </div>
             <button
-              className="bg-red-600 h-8 w-8 rounded-full text-white font-black"
+              className="p-2 border rounded-md hover:bg-red-600"
               onClick={() => deleteItem(id)}
             >
-              X
+              <TrashCan />
             </button>
           </li>
         ))}
