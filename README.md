@@ -23,13 +23,13 @@ This is a tip calculator application developed in React + TypeScript that allows
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/germangambarte/tip-calculator.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-repo
+   cd tip-calculator
    ```
 
 3. Install dependencies:
@@ -56,11 +56,3 @@ This is a tip calculator application developed in React + TypeScript that allows
 ## Contributions
 
 If you'd like to contribute, please fork the repository, create a new branch with your changes, and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
-
-```
-
-```
