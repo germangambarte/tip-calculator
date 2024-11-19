@@ -1,13 +1,14 @@
-import { useCallback, useMemo } from 'react'
+import { Dispatch, useCallback, useMemo } from 'react'
 import { type OrderItemType } from '../../types'
 import { formatCurrency } from '../helpers'
+import { OrderActionType } from '../reducers/orderReducer'
 
 type Props = {
   order: OrderItemType[]
   tip: number
-  resetOrder: () => void
+  dispatch: Dispatch<OrderActionType>
 }
-export function OrderTotals({ order, tip, resetOrder }: Props) {
+export function OrderTotals({ order, tip, dispatch }: Props) {
   const subtotal = useCallback(
     () => order.reduce((total, item) => total + item.price * item.quantity, 0),
     [order]
@@ -34,7 +35,7 @@ export function OrderTotals({ order, tip, resetOrder }: Props) {
       <button
         className="w-full py-3 uppercase bg-black text-white rounded-md font-bold mt-10 disabled:opacity-20"
         disabled={total === 0}
-        onClick={resetOrder}
+        onClick={() => dispatch({ type: 'RESET_ORDER' })}
       >
         Reset Order
       </button>

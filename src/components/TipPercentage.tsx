@@ -1,3 +1,6 @@
+import { Dispatch } from 'react'
+import { OrderActionType } from '../reducers/orderReducer'
+
 const tipOptions = [
   {
     id: 'tip-10',
@@ -17,11 +20,11 @@ const tipOptions = [
 ]
 
 type Props = {
-  changeTip: (percentage: number) => void
+  dispatch: Dispatch<OrderActionType>
   tip: number
 }
 
-export function TipPercentage({ changeTip, tip }: Props) {
+export function TipPercentage({ dispatch, tip }: Props) {
   return (
     <>
       <h3 className="font-black text-2xl pt-4">
@@ -41,7 +44,12 @@ export function TipPercentage({ changeTip, tip }: Props) {
               name="tip"
               value={value}
               checked={tip === value}
-              onChange={() => changeTip(value)}
+              onChange={() =>
+                dispatch({
+                  type: 'CHANGE_TIP',
+                  payload: { percentage: value }
+                })
+              }
             />{' '}
             {label}
           </label>
